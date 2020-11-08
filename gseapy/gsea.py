@@ -859,6 +859,8 @@ class Replot(GSEAbase):
             # extract statistical resutls from results.edb file
             hit_ind, nes, pval, fdr = data
             gene_set = gene_set_dict.get(enrich_term)
+            if float(pval) > 0.1:
+                continue
             # calculate enrichment score
             RES = enrichment_score(gene_list=gene_list, 
                                    correl_vector=correl_vector,
